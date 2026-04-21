@@ -1,0 +1,42 @@
+1.1 funkcije 17,18,19,20
+kad je samo fun(int x) ne mijenja se nista bez obzira sta je u tijelu fje,
+a kad imamo fun(int &x) ili fun (int *x) mijenja se i pamti stanje za naredne
+moramo paziti da prva i ova &x nemaju isto ime jer kad pozivamo u mainu 
+pozivamo obe sa fun(x)
+
+const kaze da nece mijenjati vrijednost promijenljive, read-only
+
+metode su definisane unutar klase, imaju direktan pristup privatnim poljima,
+pozivaju se preko objekta koristeci tacku
+slobodne funkcije su van klase, pozivaju se direktno a objekat se salje kao 
+argument, nemaju direktan pristup privatnim poljima, vec koraju zamoliti 
+klasu preko javne metode npr mc.getX()
+slobodna funkcija prima konstantnu referencu na objekat, samo ga odtampa,
+ne mijenja
+const objekat smije da poziva samo const metod
+
+KonstruktorAko ga ti ne napišeš...Prazan (Krug())Kompajler ga daje SAMO 
+ako nemaš nijedan drugi.Kopije (Krug(const Krug& k))Kompajler ga daje 
+SKORO UVEK (osim ako ga baš zabraniš).Sa parametrimaKompajler ga NIKAD 
+ne daje sam. 
+
+1.0 Veze 21.slajd
+
+prijateljske funkcije mogu pristupati privatnim poljiima neke klase
+ali moraju biti deklarisane u okviru nje
+
+operatori 13.slajd !!!
+sve sa = osim != i == imaju jedno u zagradi ali i & ispred zagrade
+const imaju samo ++ operatori -> kad je const Complex& ide prazna zagrada()
+kad je const Complex bez & ide (int) -> postfiksni, vraca staru vrednost
+SVI OSTALI SU FRIEND i SVI IMAJU & u zagradi, a ispred ne
+dva bool su == i !=
+
+samo ostream i istream nemaju dvaput istu klasu sa & u ()
+ostream << ima const uz drugu klasu
+istream >> nema const nikako
+
+da funkcija nije bila deklarisana kao friend u klasi 
+morali bismo da koristimo get iliw set
+
+SKRIPTA NA WA GRUPI OD IVANE KOVCIC
