@@ -56,3 +56,18 @@ CREATE TABLE Transakcija (
     novcanik_id INT REFERENCES Novcanik(id) ON DELETE CASCADE,
     korisnik_id INT REFERENCES Korisnik(id) ON DELETE CASCADE
 );
+-- DODATAK ZA CILJEVE ŠTEDNJE
+CREATE TABLE CiljStednje (
+    id SERIAL PRIMARY KEY,
+    naziv VARCHAR(100) NOT NULL,
+    ciljani_iznos DECIMAL(15, 2) NOT NULL,
+    trenutni_iznos DECIMAL(15, 2) DEFAULT 0.00,
+    rok_datum DATE,
+    novcanik_id INT REFERENCES Novcanik(id) ON DELETE CASCADE,
+    korisnik_id INT REFERENCES Korisnik(id) ON DELETE CASCADE
+);
+
+-- IZMENA TABELE TRANSAKCIJA (za transfere i ponavljanja)
+-- Dodajemo ciljni_novcanik_id da podržimo prebacivanje novca
+ALTER TABLE Transakcija ADD COLUMN ciljni_novcanik_id INT REFERENCES Novcanik(id);
+ALTER TABLE Transakcija ADD COLUMN status_ponavljanja BOOLEAN DEFAULT TRUE; -- da li je iskljucena ili ne
